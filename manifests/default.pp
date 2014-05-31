@@ -6,7 +6,22 @@ package {
 
 class python {
     package {
-        ['python-lxml', 'pep8', 'pyflakes', 'python-redis', 'python-jinja2', 'python-psycopg2', 'python-pip', 'ipython', 'python-ldap', 'python-netaddr', 'python-setuptools', 'python-dev', 'build-essential']:
+        [
+        'build-essential',
+        'ipython',
+        'pep8',
+        'pyflakes',
+        'python-dev',
+        'python-imaging',
+        'python-jinja2',
+        'python-ldap',
+        'python-lxml',
+        'python-netaddr',
+        'python-pip',
+        'python-psycopg2',
+        'python-redis',
+        'python-setuptools'
+        ]:
             ensure => 'installed';
 
         ['PyYAML', 'CherryPy']:
@@ -32,7 +47,21 @@ class java {
 package {
     # dstat: nice statistics
     # apache2-utils: Apache Bench (ab)
-    ['dstat', 'apache2-utils', 'rsync', 'strace', 'tcpdump', 'w3m', 'zip', 'bzip2', 'lsof', 'unzip']:
+    # optipng, jpegoptim: image optimizations
+    [
+    'apache2-utils',
+    'bzip2',
+    'dstat',
+    'jpegoptim',
+    'lsof',
+    'optipng',
+    'rsync',
+    'strace',
+    'tcpdump',
+    'unzip',
+    'w3m',
+    'zip'
+    ]:
         ensure => 'installed';
 
     ['openvpn']:
@@ -45,6 +74,10 @@ package {
         ensure => 'installed';
 
     ['ldapvi', 'ldap-utils']:
+        ensure => 'installed';
+
+    # C++ stuff
+    ['libjansson-dev', 'libpcre3-dev', 'libzip-dev', 'libxml2-dev', 'libncurses5-dev', 'libpqxx-dev', 'liblog4cplus-dev']:
         ensure => 'installed';
 }
 
