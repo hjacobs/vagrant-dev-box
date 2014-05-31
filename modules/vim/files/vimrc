@@ -1,0 +1,134 @@
+""" Defaults for vim, hopefully everyone can agree on
+
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+if has('autocmd')
+    filetype plugin indent on
+    "remove trailing whitespaces"
+    autocmd BufWritePre *.* :call <SID>StripTrailingWhitespaces()
+endif
+
+if has('syntax') && !exists('g:syntax_on')
+  syntax enable
+endif
+
+" Use :help 'option' to see the documentation for the given option.
+
+set autoindent
+set backspace=indent,eol,start
+set complete-=i
+set showmatch
+set smarttab
+
+set nrformats-=octal
+set shiftround
+
+set ttimeout
+set ttimeoutlen=50
+
+set incsearch
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+endif
+
+set laststatus=2
+set ruler
+set showcmd
+set wildmenu
+
+if !&scrolloff
+  set scrolloff=1
+endif
+if !&sidescrolloff
+  set sidescrolloff=5
+endif
+set display+=lastline
+
+if &listchars ==# 'eol:$'
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+  if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
+    let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
+  endif
+endif
+
+set autoread
+set autowrite
+set fileformats+=mac
+
+if &history < 1000
+  set history=1000
+endif
+set viminfo^=!
+
+" Allow color schemes to do bright colors without forcing bold.
+if &t_Co == 8 && $TERM !~# '^linux'
+  set t_Co=16
+endif
+
+if !exists('g:netrw_list_hide')
+  let g:netrw_list_hide = '^\.,\~$,^tags$'
+endif
+
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
+
+" Make Y consistent with C and D.  See :help Y.
+nnoremap Y y$
+
+set encoding=utf-8      " set encoding to unicode
+set wrap                " show long lines wrapped
+set ignorecase          " No case in searches (has to be set for option 'smartcase')
+set smartcase           " No case in searches, unless the query contains upper case characters
+set showmode            " show Insert, Replace or Visual mode in the last line
+set ttyfast             " fast scrolling
+set tabstop=4           " spaces to set tabwidth to
+set shiftwidth=4        " amout of spaces < and > uses
+set expandtab           " convert tabs to spaces
+set foldmethod=marker   " automatically fold by marker {{{ }}}
+set foldenable          " all folds closed by default
+set textwidth=0         " textwidth used by used for wrapping
+set formatoptions+=t    " automatic wrapping
+set cursorline          " highlight current line
+set hlsearch            " highlight matched search patterns
+set listchars=tab:▸\ ,trail:.,nbsp:%
+
+
+" toggle copy & paste mode
+set pastetoggle=<F2>
+
+" toggle line numbers
+nnoremap <F3> :set nonumber!<CR>
+
+" toggle cursorline highlighting
+nnoremap <F4> :set nocursorline!<CR>
+
+" toggle listing whitespace characters
+nnoremap <F5> :set list!<CR>
+
+" toggle line wrapping
+nnoremap <F6> :set wrap!<CR>
+
+" Switch buffers
+map <C-Right> :bnext<CR>
+map <C-Left>  :bprev<CR>
+
+" colorscheme and highlighting
+" BUG: replaces color mapping of the terminal
+"colorscheme lucius
+"hi IncSearch term=reverse cterm=reverse
+"hi CursorLine term=reverse cterm=reverse
+
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
