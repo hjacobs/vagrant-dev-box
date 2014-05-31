@@ -6,10 +6,10 @@ package {
 
 class python {
     package {
-        ['python-lxml', 'pep8', 'pyflakes', 'python-redis', 'python-jinja2', 'python-psycopg2', 'python-pip', 'ipython', 'python-cherrypy']:
+        ['python-lxml', 'pep8', 'pyflakes', 'python-redis', 'python-jinja2', 'python-psycopg2', 'python-pip', 'ipython']:
             ensure => 'installed';
 
-        ['PyYAML']:
+        ['PyYAML', 'CherryPy']:
             provider => 'pip',
             ensure => 'installed';
     }
@@ -25,13 +25,6 @@ class postgresql {
 class java {
     package {
         ['openjdk-7-jdk', 'maven']:
-            ensure => 'installed';
-    }
-}
-
-class git {
-    package {
-        ['git']:
             ensure => 'installed';
     }
 }

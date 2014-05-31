@@ -1,0 +1,19 @@
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    br = branch
+
+[branch]
+    autosetuprebase = always
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = true
+    pager = true
+
+[push]
+	default = simple
