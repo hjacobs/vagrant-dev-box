@@ -1,12 +1,19 @@
 Vagrant Developer Box
 =====================
 
+This Vagrant file will provision (using Puppet) a basic Ubuntu 14.04 box with developer tools.
+The selection of packages and configurations are purely personal!
+
 Contains:
 
-* Python
 * VIM and configuration
+* GIT and gitconfig
 * Codevalidator and configuration
-* JDK
+* Python, PIP and some packages
+* JDK, Maven
+* PostgreSQL
+* Redis
+* Memcached
 
 Usage
 -----

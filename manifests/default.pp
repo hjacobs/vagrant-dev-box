@@ -6,7 +6,7 @@ package {
 
 class python {
     package {
-        ['python-lxml', 'pep8', 'pyflakes', 'python-redis', 'python-jinja2', 'python-psycopg2', 'python-pip', 'ipython']:
+        ['python-lxml', 'pep8', 'pyflakes', 'python-redis', 'python-jinja2', 'python-psycopg2', 'python-pip', 'ipython', 'python-ldap', 'python-netaddr', 'python-setuptools', 'python-dev', 'build-essential']:
             ensure => 'installed';
 
         ['PyYAML', 'CherryPy']:
@@ -30,7 +30,9 @@ class java {
 }
 
 package {
-    ['dstat']:
+    # dstat: nice statistics
+    # apache2-utils: Apache Bench (ab)
+    ['dstat', 'apache2-utils', 'rsync', 'strace', 'tcpdump', 'w3m', 'zip', 'bzip2', 'lsof', 'unzip']:
         ensure => 'installed';
 
     ['openvpn']:
@@ -41,11 +43,14 @@ package {
 
     ['redis-server', 'memcached']:
         ensure => 'installed';
+
+    ['ldapvi', 'ldap-utils']:
+        ensure => 'installed';
 }
 
 include vim
-include python
-include postgresql
-include java
 include git
 include codevalidator
+include python
+include java
+include postgresql
