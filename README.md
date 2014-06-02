@@ -18,9 +18,9 @@ Contains:
 Usage
 -----
 
-Install Vagrant using the latest version from https://www.vagrantup.com/downloads.html
-
-Bootstrap the Vagrant box:
+1. Install VirtualBox (https://www.virtualbox.org/) if you haven't done so already.
+2. Install Vagrant using the latest version from https://www.vagrantup.com/downloads.html
+3. Bootstrap the Vagrant box:
 
     git clone https://github.com/hjacobs/vagrant-dev-box.git
     cd vagrant-dev-box
