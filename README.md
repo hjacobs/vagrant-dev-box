@@ -30,3 +30,23 @@ If you are already running Ubuntu (or Xubuntu) 14.04, you can apply the Puppet m
 Applying the puppet configuration to your local system:
 
     sudo puppet apply --modulepath=modules manifests/default.pp
+
+Troubleshooting
+---------------
+
+If `vagrant up` produces the following error, try using the 32bit base box:
+
+    ==> default: Waiting for machine to boot. This may take a few minutes...
+        default: SSH address: 127.0.0.1:2222
+        default: SSH username: vagrant
+        default: SSH auth method: private key
+        default: Warning: Connection timeout. Retrying...
+        default: Warning: Connection timeout. Retrying...
+        default: Warning: Connection timeout. Retrying...
+    The guest machine entered an invalid state while waiting for it
+    to boot. Valid states are 'starting, running'. The machine is in the
+    'paused' state. Please verify everything is configured
+    properly and try again.
+
+Just comment in the `trusty32` line and comment out the `trusty64` line.
+(I have to use the `trusty32` base box on my old 32bit Ubuntu 13.10 host OS running VirtualBox 2.2.16).
