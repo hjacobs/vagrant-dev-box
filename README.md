@@ -26,6 +26,10 @@ Usage
         cd vagrant-dev-box
         vagrant up
 
+4. Connect to the Vagrant box via SSH:
+
+        vagrant ssh
+
 If you are already running Ubuntu (or Xubuntu) 14.04, you can apply the Puppet manifests manually on your main system.
 Applying the puppet configuration to your local system:
 
