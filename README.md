@@ -22,9 +22,9 @@ Usage
 2. Install Vagrant using the latest version from https://www.vagrantup.com/downloads.html
 3. Bootstrap the Vagrant box:
 
-    git clone https://github.com/hjacobs/vagrant-dev-box.git
-    cd vagrant-dev-box
-    vagrant up
+        git clone https://github.com/hjacobs/vagrant-dev-box.git
+        cd vagrant-dev-box
+        vagrant up
 
 If you are already running Ubuntu (or Xubuntu) 14.04, you can apply the Puppet manifests manually on your main system.
 Applying the puppet configuration to your local system:
