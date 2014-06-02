@@ -1,8 +1,11 @@
 [alias]
-    st = status
+    br = branch
     ci = commit
     co = checkout
-    br = branch
+    df = diff
+    lg = log -p
+    st = status
+    up = pull
 
 [branch]
     autosetuprebase = always
